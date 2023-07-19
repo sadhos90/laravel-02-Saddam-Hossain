@@ -33,21 +33,24 @@ class PublicController extends Controller
                 'name' => 'Saddam',
                 'surname' => 'Hossain',
                 'role' => 'Receptionist',
-                'image' => '/img/saddam.jpg'
+                'image' => '/img/saddam.jpg',
+                'aboutMe' => 'bbicus uhudsiojspd uhibduc ibybib uindc u uhinusdo oiasodud uhhu siudn '
             ],
             [
                 'id' => 2,
                 'name' => 'Shiam',
                 'surname' => 'Hossain',
                 'role' => 'Manager',
-                'image' => '/img/siam.jpg'
+                'image' => '/img/siam.jpg',
+                'aboutMe' => 'bbicus uhudsiojspd uhibduc ibybib uindc u uhinusdo oiasodud uhhu siudn '
             ],
             [   
                 'id' => 3,
                 'name' => 'Samir',
                 'surname' => 'Hossain',
                 'role' => 'Attore',
-                'image' => '/img/samir.jpg'
+                'image' => '/img/samir.jpg',
+                'aboutMe' => 'bbicus uhudsiojspd uhibduc ibybib uindc u uhinusdo oiasodud uhhu siudn '
             ]
             ];
 

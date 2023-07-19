@@ -17,6 +17,7 @@
             <div class="col-6">
                 <h5 class="text-center">Nome: {{$contatto['name']}} {{$contatto['surname']}} </h5>
                 <h1 class="text-center">{{$contatto['role']}}</h1>
+                <h5 class="text-center">Dicono di me: {{$contatto['aboutMe']}}</h5>
             </div>
             <div class="col-6">
                 <img src="{{$contatto['image']}}" class="img-thumbnail" alt="">
