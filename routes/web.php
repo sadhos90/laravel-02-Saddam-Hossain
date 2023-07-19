@@ -14,121 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $viaggi = [
-        [
-            'name' => 'Amsterdam',
-            'notti' => '5',
-            'costo' => '500',
-            'img' => '/img/amsterdam.jpg'
-        ],
-        [
-            'name' => 'Vienna',
-            'notti' => '3',
-            'costo' => '300',
-            'img' => '/img/vienna.jpg'
-        ],
-        [
-            'name' => 'Napoli',
-            'notti' => '5',
-            'costo' => '500',
-            'img' => '/img/napoli.jpg'
-        ]
-        ];
-    return view('welcome', ['viaggi' => $viaggi]);
-})->name('welcome');
+Route::get('/', [PublicController::class, 'welcome'])->name('welcome');
 
-Route::get('/contatti', function (){
-    $contatti = [
-        [   
-            'id' => 1,
-            'name' => 'Saddam',
-            'surname' => 'Hossain',
-            'role' => 'Receptionist',
-            'image' => '/img/saddam.jpg'
-        ],
-        [
-            'id' => 2,
-            'name' => 'Shiam',
-            'surname' => 'Hossain',
-            'role' => 'Manager',
-            'image' => '/img/siam.jpg'
-        ],
-        [   
-            'id' => 3,
-            'name' => 'Samir',
-            'surname' => 'Hossain',
-            'role' => 'Attore',
-            'image' => '/img/samir.jpg'
-        ]
-        ];
+Route::get('/contatti', [PublicController::class, 'contatti'])->name('contatti');
 
-    return view('contatti', ['contatti' => $contatti]);
+Route::get('/team/dettaglio/{id}', [PublicController::class, 'dettaglioTeam'])->name('dettaglioTeam');
 
-})->name('contatti');
+Route::get('/dettaglio/{name}', [PublicController::class, 'dettaglioViaggi'])->name('dettaglio');
 
-Route::get('/team/dettaglio/{id}', function($id){
-    $contatti = [
-        [   
-            'id' => 1,
-            'name' => 'Saddam',
-            'surname' => 'Hossain',
-            'role' => 'Receptionist',
-            'image' => '/img/saddam.jpg'
-        ],
-        [
-            'id' => 2,
-            'name' => 'Shiam',
-            'surname' => 'Hossain',
-            'role' => 'Manager',
-            'image' => '/img/siam.jpg'
-        ],
-        [   
-            'id' => 3,
-            'name' => 'Samir',
-            'surname' => 'Hossain',
-            'role' => 'Attore',
-            'image' => '/img/samir.jpg'
-        ]
-        ];
-
-        foreach ($contatti as $contatto){
-            if ($id == $contatto ['id']){
-                return view('dettaglioTeam', ['contatto' => $contatto]);
-            }
-        }
-    return view('dettaglioTeam');
-})->name('dettaglioTeam');
-
-Route::get('/dettaglio/{name}', function ($name){
-    
-    $viaggi = [
-        [
-            'name' => 'Amsterdam',
-            'notti' => '5',
-            'costo' => '500',
-            'img' => '/img/amsterdam.jpg'
-        ],
-        [
-            'name' => 'Vienna',
-            'notti' => '3',
-            'costo' => '300',
-            'img' => '/img/vienna.jpg'
-        ],
-        [
-            'name' => 'Napoli',
-            'notti' => '5',
-            'costo' => '500',
-            'img' => '/img/napoli.jpg'
-        ]
-        ];
-
-        foreach ($viaggi as $viaggio){
-            if ($name == $viaggio ['name']){
-                return view('dettaglio', ['viaggio' => $viaggio]);
-            }
-        }
-
-})->name('dettaglio');
-
-Route::get('/destinazioni', [PublicController::class, 'destinazioni']);
+Route::get('/destinazioni', [PublicController::class, 'destinazioni'])->name('destinazioni');
