@@ -6,32 +6,28 @@ use Illuminate\Http\Request;
 
 class PublicController extends Controller
 {
-    function destinazioni () {
-        $viaggi = [
-            [
-                'name' => 'Amsterdam',
-                'notti' => '5',
-                'costo' => '500',
-                'img' => '/img/amsterdam.jpg'
-            ],
-            [
-                'name' => 'Vienna',
-                'notti' => '3',
-                'costo' => '300',
-                'img' => '/img/vienna.jpg'
-            ],
-            [
-                'name' => 'Napoli',
-                'notti' => '5',
-                'costo' => '500',
-                'img' => '/img/napoli.jpg'
-            ]
-            ];
-        return view('destinazioni', ['viaggi' => $viaggi]);
-    }
+    public $viaggi = [
+        [
+            'name' => 'Amsterdam',
+            'notti' => '5',
+            'costo' => '500',
+            'img' => '/img/amsterdam.jpg'
+        ],
+        [
+            'name' => 'Vienna',
+            'notti' => '3',
+            'costo' => '300',
+            'img' => '/img/vienna.jpg'
+        ],
+        [
+            'name' => 'Napoli',
+            'notti' => '5',
+            'costo' => '500',
+            'img' => '/img/napoli.jpg'
+        ]
+        ];
 
-    function contatti (){
-        $contatti = [
+        public $contatti = [
             [   
                 'id' => 1,
                 'name' => 'Saddam',
@@ -54,37 +50,22 @@ class PublicController extends Controller
                 'image' => '/img/samir.jpg'
             ]
             ];
+
+    function destinazioni () {
+        
+        return view('destinazioni', ['viaggi' => $this->viaggi]);
+    }
+
+    function contatti (){
+        
     
-        return view('contatti', ['contatti' => $contatti]);
+        return view('contatti', ['contatti' => $this->contatti]);
     
     }
 
     function dettaglioTeam ($id){
-        $contatti = [
-            [   
-                'id' => 1,
-                'name' => 'Saddam',
-                'surname' => 'Hossain',
-                'role' => 'Receptionist',
-                'image' => '/img/saddam.jpg'
-            ],
-            [
-                'id' => 2,
-                'name' => 'Shiam',
-                'surname' => 'Hossain',
-                'role' => 'Manager',
-                'image' => '/img/siam.jpg'
-            ],
-            [   
-                'id' => 3,
-                'name' => 'Samir',
-                'surname' => 'Hossain',
-                'role' => 'Attore',
-                'image' => '/img/samir.jpg'
-            ]
-            ];
-    
-            foreach ($contatti as $contatto){
+            
+            foreach ($this->contatti as $contatto){
                 if ($id == $contatto ['id']){
                     return view('dettaglioTeam', ['contatto' => $contatto]);
                 }
@@ -94,28 +75,7 @@ class PublicController extends Controller
 
     function dettaglioViaggi ($name){
     
-        $viaggi = [
-            [
-                'name' => 'Amsterdam',
-                'notti' => '5',
-                'costo' => '500',
-                'img' => '/img/amsterdam.jpg'
-            ],
-            [
-                'name' => 'Vienna',
-                'notti' => '3',
-                'costo' => '300',
-                'img' => '/img/vienna.jpg'
-            ],
-            [
-                'name' => 'Napoli',
-                'notti' => '5',
-                'costo' => '500',
-                'img' => '/img/napoli.jpg'
-            ]
-            ];
-    
-            foreach ($viaggi as $viaggio){
+            foreach ($this->viaggi as $viaggio){
                 if ($name == $viaggio ['name']){
                     return view('dettaglio', ['viaggio' => $viaggio]);
                 }
