@@ -86,8 +86,16 @@ class PublicController extends Controller
     
     }
 
-    function welcome (){
+    public function welcome (){
         return view('welcome');
+    }
+
+    public function contactUs (){
+        return view('contactUs');
+    }
+
+    public function contactUsSubmit (Request $request){
+        dd($request->all());
     }
 
 }

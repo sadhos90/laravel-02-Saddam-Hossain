@@ -23,3 +23,7 @@ Route::get('/team/dettaglio/{id}', [PublicController::class, 'dettaglioTeam'])->
 Route::get('/dettaglio/{name}', [PublicController::class, 'dettaglioViaggi'])->name('dettaglio');
 
 Route::get('/destinazioni', [PublicController::class, 'destinazioni'])->name('destinazioni');
+
+Route::get('/contattaci', [PublicController::class, 'contactUs'])->name('contactUs');
+
+Route::post('/contattaci/submit', [PublicController::class, 'contactUsSubmit'])->name('contactUsSubmit');
